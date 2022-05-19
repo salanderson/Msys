@@ -1,0 +1,12 @@
+SELECT
+  `e`.`eti_id` AS `eti_id`,
+  `e`.`eti_produto` AS `eti_produto`,
+  `p`.`pro_id` AS `pro_id`,
+  `p`.`pro_nome` AS `pro_nome`,
+  `p`.`pro_barras` AS `pro_barras`,
+  `p`.`pro_custo` AS `pro_custo`,
+  `p`.`pro_preço` AS `pro_preço`,
+  `p`.`pro_estoque` AS `pro_estoque`
+FROM (`etiqueta` `e`
+  JOIN `produtos` `p`)
+WHERE (`e`.`eti_produto` = `p`.`pro_id`)

@@ -1,0 +1,21 @@
+SELECT
+  `p`.`ped_id` AS `ped_id`,
+  `p`.`ped_cod_venda` AS `ped_cod_venda`,
+  `p`.`ped_data` AS `ped_data`,
+  `p`.`ped_cliente` AS `ped_cliente`,
+  `p`.`ped_vendedor` AS `ped_vendedor`,
+  `p`.`ped_forma` AS `ped_forma`,
+  `p`.`ped_valor` AS `ped_valor`,
+  `p`.`ped_estoque` AS `ped_estoque`,
+  `c`.`cli_id` AS `cli_id`,
+  `c`.`cli_nome` AS `cli_nome`,
+  `c`.`cli_fone` AS `cli_fone`,
+  `c`.`cli_endereco` AS `cli_endereco`,
+  `f`.`forma_id` AS `forma_id`,
+  `f`.`forma_nome` AS `forma_nome`
+FROM ((`pedidos` `p`
+  JOIN `clientes` `c`)
+  JOIN `forma` `f`)
+WHERE ((`p`.`ped_cliente` = `c`.`cli_id`)
+AND (`p`.`ped_forma` = `f`.`forma_id`)
+AND (`p`.`ped_forma` = 2))

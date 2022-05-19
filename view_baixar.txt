@@ -1,0 +1,16 @@
+SELECT
+  `c`.`cli_id` AS `cli_id`,
+  `c`.`cli_nome` AS `cli_nome`,
+  `c`.`cli_fone` AS `cli_fone`,
+  `c`.`cli_endereco` AS `cli_endereco`,
+  `p`.`carne_id` AS `carne_id`,
+  `p`.`carne_cod` AS `carne_cod`,
+  `p`.`carne_cliente` AS `carne_cliente`,
+  `p`.`carne_vence` AS `carne_vence`,
+  `p`.`carne_n_parcelas` AS `carne_n_parcelas`,
+  `p`.`carne_valor_parcela` AS `carne_valor_parcela`,
+  `p`.`carne_status` AS `carne_status`,
+  `p`.`carne_data_pago` AS `carne_data_pago`
+FROM (`clientes` `c`
+  JOIN `parcelas_prontas` `p`)
+WHERE (`p`.`carne_cliente` = `c`.`cli_id`)
